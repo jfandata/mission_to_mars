@@ -32,13 +32,11 @@
     <!--Featured Mars Image, Current Weather, Mars Facts-->
     <div class="container-fluid">
       <div class="row" id="featured-mars-image">
-        <div class="col-md-8">
+        <div class="col-md-7">
           <h2>Featured Mars Image</h2>
-          <img src="{{mars.featured_image_url}}" alt="featured image" class="img-thumbnail">
+          <img src="{{mars.featured_image_url}}" alt="featured image" style="width:70%">
         </div><!--col-md-8-->
-      </div><!--row featured-mars-image-->
-    
-        <div class="col-md-4">
+        <div class="col-md-5">
           <div class="row" id="current-weather-on-mars">
             <ul>
               <h2>Current Weather on Mars</h2>
@@ -54,23 +52,23 @@
               <a href="{{mars.mars_facts}}"></a>
             </ul>
           </div><!--row mars-facts-->
-        </div>
+        </div><!--col-md-4-->
+      </div>
     </div>
 
     <!--Mars Hemispheres-->
-    <div class="container-fluid">
-      <div id="mars-hemisphere">
-        <h2 class="text-center">Mars Hemispheres</h2>
-        <ul>
-        {% for hemisphere in mars.hemisphere_image_urls %}
-        <div class="col-md-6">
-          <li><img src="{{hemisphere.img_url[0]}}" class="img-thumbnail"></li>
-          <li><img src="{{hemisphere.img_url[1]}}" class="img-thumbnail"></li>
+    <h2 class="text-center">Mars Hemispheres</h2>
+    {% for hemisphere in mars.hemisphere_image_urls %}
+      <div class="col-md-6">
+        <div class="thumbnail">
+        <img src="{{hemisphere.img_url}}">
+          <div class="caption">
+            {{hemisphere.Title}}
+          </div>
         </div>
-        {% endfor %}
-        </ul>
-      </div><!--row mars-hemisphere-->
-    </div>
+      </div>
+    {% endfor %}
+    
 
   </div>
 </body>
